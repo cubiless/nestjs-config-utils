@@ -1,3 +1,11 @@
+## **1.3.2**&emsp;<sub><sup>2025-01-20 ([6e92d3f...0a9537c](https://github.com/cubiless/nest-config-utils/compare/6e92d3f9f4a467c7f9c4c9354ec713fa6b00e2cf...0a9537c90e1d0c55fe3f7b480febd1fc75ff46a7?diff=split))</sup></sub>
+
+### ? ? ?
+
+- feat\(\): Support Config\.module ^4\.0\.0 ([6e92d3f](https://github.com/cubiless/nest-config-utils/commit/6e92d3f9f4a467c7f9c4c9354ec713fa6b00e2cf))
+
+<br>
+
 ## **1.3.1**&emsp;<sub><sup>2024-08-08 ([7c9127a...b64e1b5](https://github.com/cubiless/nest-config-utils/compare/7c9127a3f0dc85d919dd77bb67adeed3e62120f5...b64e1b55d8a1987c76674f735120cfbe0d88f0e3?diff=split))</sup></sub>
 
 ### Features
