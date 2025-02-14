@@ -19,7 +19,7 @@
     "dist"
   ],
   "scripts": {
-    "prebuild": "rimraf dist && format && lint",
+    "prebuild": "rimraf dist",
     "build": "nest build",
     "prepublishOnly": "npm run build",
     "start:dev": "nodemon --watch '{src,test}/**/*.ts' --ignore '**/*.spec.ts' --exec ts-node test/app/main.ts",
