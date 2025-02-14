@@ -29,7 +29,7 @@ $ npm i -D @types/js-yaml
 
 ```ts
 // App.config.ts
-import { FromEnv } from '@cubiles/nest-config-utils';
+import { FromEnv } from '@cubiles/nestjs-config-utils';
 import { IsString, IsNumber } from 'class-validator';
 
 export class AppConfig {
@@ -62,7 +62,7 @@ export class YamlConfig {
 ```ts
 // App.service.ts
 import { Injectable, OnModuleInit } from '@nestjs/common';
-import { InjectConfig } from '@cubiles/nest-config-utils';
+import { InjectConfig } from '@cubiles/nestjs-config-utils';
 import { AppConfig } from './App.config';
 import { YamlConfig } from './YAML.config';
 
@@ -84,20 +84,34 @@ export class AppService implements OnModuleInit {
 
 ```ts
 // Config.module.ts
-import { Module } from '@nestjs/common';
-import { AppConfig } from './App.config';
-import { YamlConfig } from './YAML.config';
-import { AppService } from './App.service';
-import { TypedConfig, TypedYamlConfig } from '@cubiles/nest-config-utils';
+import { Module } from "@nestjs/common";
+import { AppConfig } from "./App.config";
+import { YamlConfig } from "./YAML.config";
+import { AppService } from "./App.service";
+import { TypedConfig, TypedYamlConfig } from "@cubiles/nestjs-config-utils";
 
 @Module({
   imports: [
+    ConfigModule.forRoot(),
     TypedConfig.forFeature(AppConfig),
-    TypedYamlConfig.forFeature(YamlConfig, './test/app/example.yml'),
+    TypedYamlConfig.forFeature(YamlConfig, "./test/app/example.yml")
   ],
   controllers: [],
-  providers: [AppService],
+  providers: [AppService]
 })
 export class AppModule {
 }
+```
+
+```ts
+// main.ts
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+  
+  const appConfig: AppConfig = app.get(getConfigToken(AppConfig.name));
+  
+  await app.listen(appConfig.port, appConfig.address);
+}
+
+bootstrap();
 ```
