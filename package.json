@@ -19,15 +19,16 @@
     "dist"
   ],
   "scripts": {
-    "prebuild": "rimraf dist",
+    "prebuild": "rimraf dist && format && lint",
     "build": "nest build",
     "prepublishOnly": "npm run build",
-    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start:dev": "nodemon --watch '{src,test}/**/*.ts' --ignore '**/*.spec.ts' --exec ts-node test/app/main.ts",
     "lint": "eslint \"{src,test}/**/*.ts\" --fix",
+    "format": "prettier --write \"{src,test}/**/*.ts\"",
     "release": "release-it"
   },
   "devDependencies": {
+    "@eslint/js": "^9.20.0",
     "@nestjs/cli": "^11.0.2",
     "@nestjs/common": "^11.0.9",
     "@nestjs/config": "^4.0.0",
@@ -38,16 +39,13 @@
     "@types/jest": "^29.5.14",
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^22.13.4",
-    "@typescript-eslint/eslint-plugin": "^8.24.0",
-    "@typescript-eslint/parser": "^8.24.0",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.1",
     "eslint": "^9.20.1",
-    "eslint-config-prettier": "^10.0.1",
-    "eslint-plugin-prettier": "^5.2.3",
+    "globals": "^15.15.0",
     "js-yaml": "^4.1.0",
     "nodemon": "^3.1.9",
-    "prettier": "^3.5.1",
+    "prettier": "3.5.1",
     "reflect-metadata": "^0.2.2",
     "release-it": "^18.1.2",
     "rimraf": "^6.0.1",
@@ -56,7 +54,8 @@
     "ts-loader": "^9.5.2",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
-    "typescript": "^5.7.3"
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.24.0"
   },
   "peerDependencies": {
     "@nestjs/common": "^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0",

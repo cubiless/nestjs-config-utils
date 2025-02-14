@@ -1,7 +1,6 @@
 import { FromEnv } from '../../src';
 
 export class AppConfig {
-
   @FromEnv('APP_ADDRESS')
   readonly address: string = 'localhost';
 

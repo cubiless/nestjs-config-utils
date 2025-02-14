@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { AppConfig } from './App.config';
 import { YamlConfig } from './YAML.config';
 import { AppService } from './App.service';
-import { TypedConfig, TypedYamlConfig } from "../../src";
+import { TypedConfig, TypedYamlConfig } from '../../src';
 
 @Module({
   imports: [
@@ -12,5 +12,4 @@ import { TypedConfig, TypedYamlConfig } from "../../src";
   controllers: [],
   providers: [AppService],
 })
-export class AppModule {
-}
+export class AppModule {}
