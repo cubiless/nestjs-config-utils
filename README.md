@@ -108,7 +108,7 @@ export class AppModule {
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   
-  const appConfig: AppConfig = app.get(getConfigToken(AppConfig.name));
+  const appConfig: AppConfig = app.get(getTypedConfigToken(AppConfig));
   
   await app.listen(appConfig.port, appConfig.address);
 }
