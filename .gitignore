@@ -17,6 +17,7 @@ lerna-debug.log*
 # Tests
 /coverage
 /.nyc_output
+main.ts
 
 # IDEs and editors
 /.idea
@@ -41,4 +42,3 @@ lerna-debug.log*
 */.nuxt/*
 */.output/*
 */dist/*
-
